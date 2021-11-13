@@ -1,0 +1,59 @@
+<div class="menu">
+  <div [ngClass]="val == 1 ? 'menu-item-selected' : 'menu-item'">
+    <a class="menu-block" href="/">
+      <img src="../../../assets/home.svg" alt="home">
+      <span class="menu-item-name">Главная</span>
+    </a>
+  </div>
+
+  <div [ngClass]="val == 2 ? 'menu-item-selected' : 'menu-item'">
+    <a class="menu-block" href="/schedule">
+      <img src="../../../assets/calendar.svg" alt="calendar">
+      <span class="menu-item-name">Расписание</span>
+    </a>
+  </div>
+
+  <div [ngClass]="val == 3 ? 'menu-item-selected' : 'menu-item'">
+    <a class="menu-block" href="/grade-book">
+      <img src="../../../assets/note.svg" alt="note">
+      <span class="menu-item-name">Зачётная книжка</span>
+    </a>
+  </div>
+
+  <div [ngClass]="val == 4 ? 'menu-item-selected' : 'menu-item'">
+    <a class="menu-block" href="/certificate">
+      <img src="../../../assets/new_file.svg" alt="new_file">
+      <span class="menu-item-name">Получить справку</span>
+    </a>
+  </div>
+
+  <div [ngClass]="val == 5 ? 'menu-item-selected' : 'menu-item'">
+    <a class="menu-block" href="/documents">
+      <img src="../../../assets/documents.svg" alt="documents">
+      <span class="menu-item-name">Мои документы</span>
+    </a>
+  </div>
+
+  <div [ngClass]="val == 6 ? 'menu-item-selected' : 'menu-item'">
+    <a class="menu-block" href="/events">
+      <img src="../../../assets/world.svg" alt="world">
+      <span class="menu-item-name">События</span>
+    </a>
+  </div>
+
+  <div [ngClass]="val == 7 ? 'menu-item-selected' : 'menu-item'">
+    <a class="menu-block" href="/vacancy">
+      <img src="../../../assets/work.svg" alt="work">
+      <span class="menu-item-name">Вакансии</span>
+    </a>
+  </div>
+
+  <div class="menu-item" style="position: fixed; bottom: 0; margin-bottom: 10px; width: 330px">
+    <a class="menu-block" (click)="exit()" href="/login">
+      <img src="../../../assets/exit.svg" alt="exit">
+      <span class="menu-item-name">Выйти</span>
+    </a>
+  </div>
+
+
+</div>
