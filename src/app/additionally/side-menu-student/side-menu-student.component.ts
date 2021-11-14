@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-side-menu-student',
@@ -7,15 +7,20 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class SideMenuStudentComponent implements OnInit {
 
-  // @ts-ignore
-  @Input() val : number;
+  @Input() selectedMenuItem!: number;
+  @Output() onClickBurger = new EventEmitter;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
   exit() {
 
+  }
+
+  clickBurger() {
+    this.onClickBurger.emit()
   }
 }

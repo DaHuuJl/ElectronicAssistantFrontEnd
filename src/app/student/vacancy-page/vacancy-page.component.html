@@ -1,8 +1,16 @@
-<app-header></app-header>
-<app-side-menu-student [val]="menuNumber"></app-side-menu-student>
+<mat-sidenav-container class="example-container">
 
-<main class="content">
-  <p>vacancy-page works!</p>
+  <mat-sidenav #drawer style="position: fixed" [mode]="mode">
+    <app-side-menu-student [selectedMenuItem]="menuNumber" (onClickBurger)="menuStatusReplace()"></app-side-menu-student>
+  </mat-sidenav>
 
-  <p style="height: 2000px"> </p>
-</main>
+  <mat-sidenav-content>
+    <app-header [burgerHide]="burgerHide" [burgerStatusHide]="burgerStatusHide"  (onClickBurger)="menuStatusReplace()" ></app-header>
+
+    <main class="content">
+      <p>vacancy-page works!</p>
+      <button mat-button color="accent" id="ddddrawer" (click)="drawer.toggle()">asda sdasda asd asd</button>
+      <p style="height: 2000px"> </p>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

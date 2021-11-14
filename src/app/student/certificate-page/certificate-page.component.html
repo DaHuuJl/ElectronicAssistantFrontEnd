@@ -1,5 +1,5 @@
 <app-header></app-header>
-<app-side-menu-student [val]="menuNumber"></app-side-menu-student>
+<app-side-menu-student [selectedMenuItem]="menuNumber"></app-side-menu-student>
 
 <main class="content">
   <mat-stepper orientation="vertical" [linear]="true">
@@ -54,7 +54,7 @@
     <mat-step [stepControl]="secondFormGroup">
       <ng-template matStepLabel>Место предъявления</ng-template>
       <form [formGroup]="secondFormGroup">
-        <p>Укажите место предъявление справки (при необходимости измените):</p>
+        <p>Укажите место предъявления справки (при необходимости измените):</p>
         <mat-form-field appearance="fill" class="field-width">
           <mat-label>Место предъявления</mat-label>
           <input matInput [matAutocomplete]="auto" formControlName="select2" required>
