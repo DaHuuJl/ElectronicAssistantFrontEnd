@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDrawer, MatDrawerMode} from "@angular/material/sidenav";
+import {Component, OnInit} from '@angular/core';
+import {MatDrawerMode} from "@angular/material/sidenav";
 
 @Component({
   selector: 'app-vacancy-page',
@@ -12,45 +12,34 @@ export class VacancyPageComponent implements OnInit {
   menuStatus!: boolean
   burgerHide!: boolean
   burgerStatusHide!: boolean
-
-  mode: MatDrawerMode = "over"
+  mode!: MatDrawerMode
 
   constructor() {
-    if(window.screen.availWidth >= 1000) {
-      this.mode = "side"
-      //Нужно ли скрывать бургер? да/нет
-      this.burgerStatusHide = true
-      //
-      this.menuStatus = false
-      //Бургер скрыт? да/нет
-      this.burgerHide = true
-
-    } else {
-      this.mode = "over"
-
-      this.burgerHide = false
-      this.menuStatus = false
-
-    }
   }
 
   ngOnInit(): void {
+    if(window.screen.availWidth >= 1000) {
+      this.mode = "side"
+      this.burgerStatusHide = true
+      this.menuStatus = false
+      this.burgerHide = false
 
+      this.clickOnButton()
+    } else {
+      this.mode = "over"
+      this.menuStatus = false
+      this.burgerHide = false
+    }
   }
 
   menuStatusReplace() {
-    this.menuStatus! = !this.menuStatus
+    this.menuStatus = !this.menuStatus
     this.burgerHide = !this.burgerHide
-    this.asndn()
+    this.clickOnButton()
   }
 
-  menuStatusReplace2() {
-
-    this.asndn()
-  }
-
-  asndn() {
-    let element: HTMLElement = document.getElementById('ddddrawer') as HTMLElement;
+  clickOnButton() {
+    let element: HTMLElement = document.getElementById('toggle') as HTMLElement;
     element.click();
   }
 }

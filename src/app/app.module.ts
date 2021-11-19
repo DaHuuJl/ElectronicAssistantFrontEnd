@@ -35,6 +35,9 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {LayoutModule} from "@angular/cdk/layout";
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatListModule} from "@angular/material/list";
+
 
 @NgModule({
   declarations: [
@@ -75,7 +78,10 @@ import {LayoutModule} from "@angular/cdk/layout";
     MatAutocompleteModule,
     MatToolbarModule,
     MatIconModule,
-    LayoutModule
+    LayoutModule,
+    MatTabsModule,
+    MatListModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

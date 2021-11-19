@@ -1,79 +1,87 @@
-<app-header></app-header>
-<app-side-menu-student [selectedMenuItem]="menuNumber"></app-side-menu-student>
+<mat-sidenav-container>
+  <mat-sidenav #drawer style="position: fixed" [mode]="mode">
+    <app-side-menu-student [selectedMenuItem]="menuNumber" (onClickBurger)="menuStatusReplace()"></app-side-menu-student>
+  </mat-sidenav>
 
-<main class="content">
-  <mat-stepper orientation="vertical" [linear]="true">
-    <mat-step>
-      <ng-template matStepLabel>Вид справки</ng-template>
-      <ng-template matStepContent>
-        <p>Выберите вид справки:</p>
-        <section>
-          <mat-radio-group
-            class="radio-group"
-            required>
-            <mat-radio-button class="radio-button" color="primary" name="type1" value="1" checked>Справка об обучении</mat-radio-button>
-            <mat-radio-button class="radio-button" color="primary" name="type2" value="2">Справка о периоде обучения</mat-radio-button>
-          </mat-radio-group>
-        </section>
-        <button mat-button color="primary" matStepperNext>Далее</button>
-      </ng-template>
-    </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Вариант получения справки</ng-template>
-      <ng-template matStepContent>
-        <p>Выберите вариант получения справки:</p>
-        <section>
-          <mat-radio-group
-            class="radio-group"
-            required>
-            <mat-radio-button class="radio-button" color="primary" name="type1" value="1" checked>Очное получение (в деканате)</mat-radio-button>
-            <mat-radio-button class="radio-button" color="primary" name="type2" value="2">Заочное получение (электронная версия)</mat-radio-button>
-          </mat-radio-group>
-        </section>
-        <button mat-button color="primary" matStepperPrevious>Назад</button>
-        <button mat-button color="primary" matStepperNext>Далее</button>
-      </ng-template>
-    </mat-step>
-    <mat-step [stepControl]="firstFormGroup">
-      <ng-template matStepLabel>Количество экземпляров</ng-template>
-      <form [formGroup]="firstFormGroup">
-        <p>Выберите количество экзепляров:</p>
-        <mat-form-field appearance="fill">
-          <mat-label>Количество</mat-label>
-          <mat-select formControlName="select1" required>
-            <mat-option value="1">1</mat-option>
-            <mat-option value="2">2</mat-option>
-            <mat-option value="3">3</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <br>
-        <button mat-button color="primary" matStepperPrevious>Назад</button>
-        <button mat-button id="next" color="primary" matStepperNext>Далее</button>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-      <ng-template matStepLabel>Место предъявления</ng-template>
-      <form [formGroup]="secondFormGroup">
-        <p>Укажите место предъявления справки (при необходимости измените):</p>
-        <mat-form-field appearance="fill" class="field-width">
-          <mat-label>Место предъявления</mat-label>
-          <input matInput [matAutocomplete]="auto" formControlName="select2" required>
-          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-            <!-- Реализовать куки и потом подгружать лист ранее введенных запросов-->
-          </mat-autocomplete>
-        </mat-form-field>
-        <br>
-        <button mat-button color="primary" matStepperPrevious>Назад</button>
-        <button mat-button color="primary" matStepperNext>Далее</button>
-      </form>
-    </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Подтверждение</ng-template>
-      <section class="example-section">
-        <mat-checkbox color="primary" class="example-margin" [(ngModel)]="checked">Я подтверждаю, что введенные мною данные верны</mat-checkbox>
-      </section>
-      <button mat-button color="primary" matStepperPrevious>Назад</button>
-      <button mat-button color="primary" [disabled]="!checked" matStepperNext (click)="confirm()">Заказть справку</button>
-    </mat-step>
-  </mat-stepper>
-</main>
+  <mat-sidenav-content>
+    <app-header [burgerHide]="burgerHide" [burgerStatusHide]="burgerStatusHide"  (onClickBurger)="menuStatusReplace()" ></app-header>
+
+    <main class="content">
+      <mat-stepper orientation="vertical" [linear]="true">
+        <mat-step>
+          <ng-template matStepLabel>Вид справки</ng-template>
+          <ng-template matStepContent>
+            <p>Выберите вид справки:</p>
+            <section>
+              <mat-radio-group
+                class="radio-group"
+                required>
+                <mat-radio-button class="radio-button" color="primary" name="type1" value="1" checked>Справка об обучении</mat-radio-button>
+                <mat-radio-button class="radio-button" color="primary" name="type2" value="2">Справка о периоде обучения</mat-radio-button>
+              </mat-radio-group>
+            </section>
+            <button mat-button color="primary" matStepperNext>Далее</button>
+          </ng-template>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Вариант получения справки</ng-template>
+          <ng-template matStepContent>
+            <p>Выберите вариант получения справки:</p>
+            <section>
+              <mat-radio-group
+                class="radio-group"
+                required>
+                <mat-radio-button class="radio-button" color="primary" name="type1" value="1" checked>Очное получение (в деканате)</mat-radio-button>
+                <mat-radio-button class="radio-button" color="primary" name="type2" value="2">Заочное получение (электронная версия)</mat-radio-button>
+              </mat-radio-group>
+            </section>
+            <button mat-button color="primary" matStepperPrevious>Назад</button>
+            <button mat-button color="primary" matStepperNext>Далее</button>
+          </ng-template>
+        </mat-step>
+        <mat-step [stepControl]="firstFormGroup">
+          <ng-template matStepLabel>Количество экземпляров</ng-template>
+          <form [formGroup]="firstFormGroup">
+            <p>Выберите количество экзепляров:</p>
+            <mat-form-field appearance="fill">
+              <mat-label>Количество</mat-label>
+              <mat-select formControlName="select1" required>
+                <mat-option value="1">1</mat-option>
+                <mat-option value="2">2</mat-option>
+                <mat-option value="3">3</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br>
+            <button mat-button color="primary" matStepperPrevious>Назад</button>
+            <button mat-button id="next" color="primary" matStepperNext>Далее</button>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+          <ng-template matStepLabel>Место предъявления</ng-template>
+          <form [formGroup]="secondFormGroup">
+            <p>Укажите место предъявления справки (при необходимости измените):</p>
+            <mat-form-field appearance="fill" class="field-width">
+              <mat-label>Место предъявления</mat-label>
+              <input matInput [matAutocomplete]="auto" formControlName="select2" required>
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <!-- Реализовать куки и потом подгружать лист ранее введенных запросов-->
+              </mat-autocomplete>
+            </mat-form-field>
+            <br>
+            <button mat-button color="primary" matStepperPrevious>Назад</button>
+            <button mat-button color="primary" matStepperNext>Далее</button>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Подтверждение</ng-template>
+          <section class="example-section">
+            <mat-checkbox color="primary" class="example-margin" [(ngModel)]="checked">Я подтверждаю, что введенные мною данные верны</mat-checkbox>
+          </section>
+          <button mat-button color="primary" matStepperPrevious>Назад</button>
+          <button mat-button color="primary" [disabled]="!checked" matStepperNext (click)="confirm()">Заказть справку</button>
+        </mat-step>
+      </mat-stepper>
+    </main>
+    <button style="display: none" mat-button color="accent" id="toggle" (click)="drawer.toggle()">toggle menu</button>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {MatDrawerMode} from "@angular/material/sidenav";
 
 @Component({
   selector: 'app-get-certificate-page',
@@ -9,10 +10,16 @@ import {Router} from "@angular/router";
 })
 export class CertificatePageComponent implements OnInit {
 
+  menuNumber = 4;
+  menuStatus!: boolean
+  burgerHide!: boolean
+  burgerStatusHide!: boolean
+  mode!: MatDrawerMode
+
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   checked = false;
-  menuNumber = 4;
+
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.firstFormGroup = this.fb.group({
@@ -24,10 +31,34 @@ export class CertificatePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(window.screen.availWidth >= 1000) {
+      this.mode = "side"
+      this.burgerStatusHide = true
+      this.menuStatus = false
+      this.burgerHide = false
 
+      this.clickOnButton()
+    } else {
+      this.mode = "over"
+      this.menuStatus = false
+      this.burgerHide = false
+    }
+  }
+
+  menuStatusReplace() {
+    this.menuStatus = !this.menuStatus
+    this.burgerHide = !this.burgerHide
+    this.clickOnButton()
+  }
+
+  clickOnButton() {
+    let element: HTMLElement = document.getElementById('toggle') as HTMLElement;
+    element.click();
   }
 
   confirm() {
-    this.router.navigate(['/documents']);
+    this.router.navigateByUrl('/documents', { skipLocationChange: false }).then(() => {
+      this.router.navigate(['/documents']);
+    })
   }
 }

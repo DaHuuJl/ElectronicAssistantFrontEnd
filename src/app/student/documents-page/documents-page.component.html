@@ -1,8 +1,15 @@
-<app-header></app-header>
-<app-side-menu-student [selectedMenuItem]="menuNumber"></app-side-menu-student>
+<mat-sidenav-container>
+  <mat-sidenav id="index" #drawer style="position: fixed" [mode]="mode">
+    <app-side-menu-student [selectedMenuItem]="menuNumber" (onClickBurger)="menuStatusReplace()"></app-side-menu-student>
+  </mat-sidenav>
 
-<main class="content">
-  <p>Documents</p>
+  <mat-sidenav-content>
+    <app-header [burgerHide]="burgerHide" [burgerStatusHide]="burgerStatusHide"  (onClickBurger)="menuStatusReplace()" ></app-header>
 
-  <p style="height: 2000px"> </p>
-</main>
+    <main class="content">
+      <p>Documents</p>
+      <button style="display: none" mat-button color="accent" id="toggle" (click)="drawer.toggle()">toggle menu</button>
+      <p style="height: 2000px"> </p>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

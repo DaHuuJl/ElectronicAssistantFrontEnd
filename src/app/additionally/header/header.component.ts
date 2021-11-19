@@ -10,7 +10,6 @@ export class HeaderComponent implements OnInit {
   @Input() burgerStatusHide!: boolean
   @Input() burgerHide!: boolean
   @Output() onClickBurger = new EventEmitter
-  @Output() onClickBurger2 = new EventEmitter
   menuItemName: any = "DEFAULT";
 
   constructor() { }
@@ -20,9 +19,5 @@ export class HeaderComponent implements OnInit {
 
   clickBurger() {
     this.onClickBurger.emit()
-  }
-
-  clickBurger2() {
-    this.onClickBurger2.emit()
   }
 }
