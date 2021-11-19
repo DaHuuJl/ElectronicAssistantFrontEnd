@@ -1,0 +1,22 @@
+<mat-sidenav-container>
+  <mat-sidenav #drawer style="position: fixed" [mode]="mode">
+    <app-side-menu-student [selectedMenuItem]="menuNumber" (onClickBurger)="menuStatusReplace()"></app-side-menu-student>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-header [burgerHide]="burgerHide" [burgerStatusHide]="burgerStatusHide"  (onClickBurger)="menuStatusReplace()" ></app-header>
+
+    <main class="content">
+      <p>vacancy-page works!</p>
+      <mat-nav-list>
+        <a mat-list-item routerLinkActive="active">фывфывфыв</a>
+        <a mat-list-item>фывфывфыв</a>
+        <a mat-list-item>фывфывфыв</a>
+        <a mat-list-item>фывфывфыв</a>
+        <a mat-list-item>фывфывфыв</a>
+      </mat-nav-list>
+      <p style="height: 2000px"> </p>
+    </main>
+    <button style="display: none" mat-button color="accent" id="toggle" (click)="drawer.toggle()">toggle menu</button>
+  </mat-sidenav-content>
+</mat-sidenav-container>

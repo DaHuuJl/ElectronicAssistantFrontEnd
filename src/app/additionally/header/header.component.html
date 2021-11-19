@@ -1,0 +1,17 @@
+<header>
+  <mat-toolbar>
+    <div *ngIf="burgerStatusHide">
+      <button *ngIf="burgerHide" (click)="clickBurger()" mat-icon-button class="example-icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+
+    <div *ngIf="!burgerStatusHide">
+      <button (click)="clickBurger()" mat-icon-button class="example-icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+
+    <span>{{menuItemName}}</span>
+  </mat-toolbar>
+</header>
