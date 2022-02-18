@@ -36,7 +36,20 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {LayoutModule} from "@angular/cdk/layout";
 import {MatTabsModule} from "@angular/material/tabs";
-import {MatListModule} from "@angular/material/list";
+import {MatListModule, MatNavList} from "@angular/material/list";
+import {HttpClientModule} from "@angular/common/http";
+import {SurveyConstructorComponent} from './survey/survey-constructor/survey-constructor.component';
+import {DragDropModule} from "@angular/cdk/drag-drop";
+import {SurveyConstructorHeaderComponent} from './survey/survey-constructor-header/survey-constructor-header.component';
+import {
+  SurveyConstructorSidePanelComponent
+} from './survey/survey-constructor-side-panel/survey-constructor-side-panel.component';
+import {
+  SurveyConstructorQuestionComponent
+} from './survey/survey-constructor-question/survey-constructor-question.component';
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatTooltip, MatTooltipModule} from "@angular/material/tooltip";
+import { TestMenuComponent } from './test-menu/test-menu.component';
 
 
 @NgModule({
@@ -60,7 +73,12 @@ import {MatListModule} from "@angular/material/list";
     SideMenuTeacherComponent,
     ProfileTeacherComponent,
     ProfilePageComponent,
-    SideMenuOfficeComponent
+    SideMenuOfficeComponent,
+    SurveyConstructorComponent,
+    SurveyConstructorHeaderComponent,
+    SurveyConstructorSidePanelComponent,
+    SurveyConstructorQuestionComponent,
+    TestMenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,7 +99,10 @@ import {MatListModule} from "@angular/material/list";
     LayoutModule,
     MatTabsModule,
     MatListModule,
-
+    HttpClientModule,
+    DragDropModule,
+    MatSlideToggleModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

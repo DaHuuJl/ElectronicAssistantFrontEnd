@@ -1,0 +1,19 @@
+.survey-constructor-question {
+  display: block;
+}
+
+.survey-move {
+  cursor: move;
+}
+
+.survey-question-full-width {
+  width: 100%;
+}
+
+.survey-question-options {
+  padding-bottom: 10px;
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+
+}

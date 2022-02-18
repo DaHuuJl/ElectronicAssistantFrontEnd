@@ -1,0 +1,17 @@
+<div class="survey-header-body">
+  <form>
+    <mat-form-field class="survey-header-full-width" appearance="fill">
+      <mat-label>Название опроса</mat-label>
+      <input matInput required name="surveyTitle"
+             autocomplete="off"
+             [ngModel]="surveyTitle"
+             (ngModelChange)="onChangeTitle($event)">
+    </mat-form-field>
+    <mat-form-field class="survey-header-full-width" appearance="fill">
+      <mat-label>Описание опроса</mat-label>
+      <textarea matInput required name="surveyDescription"
+                [ngModel]="surveyDescription"
+                (ngModelChange)="onChangeDescription($event)"></textarea>
+    </mat-form-field>
+  </form>
+</div>

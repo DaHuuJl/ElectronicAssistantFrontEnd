@@ -11,6 +11,8 @@ import {VacancyPageComponent} from "./student/vacancy-page/vacancy-page.componen
 import {GradeBookPageComponent} from "./student/grade-book-page/grade-book-page.component";
 import {NotFoundPageComponent} from "./default/not-found-page/not-found-page.component";
 import {LoginPageComponent} from "./default/login-page/login-page.component";
+import {SurveyConstructorComponent} from "./survey/survey-constructor/survey-constructor.component";
+import {TestMenuComponent} from "./test-menu/test-menu.component";
 
 
 const routes: Routes = [
@@ -18,7 +20,7 @@ const routes: Routes = [
   { path: 'grade-book', component: GradeBookPageComponent },
   { path: 'certificate', component: CertificatePageComponent },
   { path: 'documents', component: DocumentsPageComponent },
-  { path: 'events', component: EventsPageComponent },
+  { path: 'events', component: TestMenuComponent },
   { path: 'vacancy', component: VacancyPageComponent },
 
   //Teacher
@@ -34,6 +36,9 @@ const routes: Routes = [
   { path: 'schedule', component: SchedulePageComponent },
   { path: 'notfound', component: NotFoundPageComponent },
   { path: 'profile', component: ProfileStudentComponent },
+
+  //ALL
+  { path: 'survey-constructor', component: SurveyConstructorComponent },
 
 
   { path: '', component: HomePageComponent },

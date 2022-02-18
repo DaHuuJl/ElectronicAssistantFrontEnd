@@ -1,0 +1,47 @@
+<div class="survey-constructor-question">
+  <form>
+    <mat-form-field class="survey-question-full-width" appearance="fill">
+      <mat-label>Вопрос</mat-label>
+      <input matInput required name="surveyTitle"
+             autocomplete="off"
+             [ngModel]="title"
+             (ngModelChange)="onTitleChange($event)">
+    </mat-form-field>
+    <mat-form-field *ngIf="description != '' && description != null" class="survey-question-full-width" appearance="fill">
+      <mat-label>Описание</mat-label>
+      <textarea matInput required
+                [ngModel]="description"
+                (ngModelChange)="onDescriptionChange($event)"
+                name="surveyDescription"></textarea>
+    </mat-form-field>
+    <hr>
+    <div class="survey-question-options">
+      <button mat-mini-fab color="primary" aria-label="Icon DELETE"
+              matTooltip="Удалить вопрос"
+              matTooltipShowDelay="500"
+              (click)="delete()">
+        <mat-icon>delete</mat-icon>
+      </button>
+<!--      <button mat-fab color="primary" aria-label="Example icon button with a delete icon">-->
+<!--        <mat-icon>delete</mat-icon>-->
+<!--      </button>-->
+<!--      <button mat-fab color="primary" aria-label="Example icon button with a delete icon">-->
+<!--        <mat-icon>delete</mat-icon>-->
+<!--      </button>-->
+      <mat-slide-toggle color="primary" [(ngModel)]="mandatory" (ngModelChange)="onMandatoryChange($event)" name="mandatory">Обязательный</mat-slide-toggle>
+      <mat-slide-toggle color="primary" [(ngModel)]="isDescription" (click)="onDescription()" name="isDescription">Описание</mat-slide-toggle>
+      <mat-slide-toggle color="primary" [(ngModel)]="other" (ngModelChange)="onOtherChange($event)" name="other">Свой вариант</mat-slide-toggle>
+    </div>
+  </form>
+</div>
+
+<!--
+<mat-form-field appearance="fill">
+    <mat-label>Favorite food</mat-label>
+    <mat-select [(ngModel)]="selectedValue" name="food">
+      <mat-option *ngFor="let food of foods" [value]="food.value">
+        {{food.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+-->
