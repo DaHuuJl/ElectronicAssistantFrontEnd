@@ -1,6 +1,5 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {ICertificate} from "../model/Model";
 import {Observable} from "rxjs";
 import {FormatReference, TypeReference} from "../model/Enums";
 

@@ -8,7 +8,7 @@ import {MatDrawerMode} from "@angular/material/sidenav";
 })
 export class GradeBookPageComponent implements OnInit {
 
-  menuNumber = 3;
+  public menuPath = 'grade-book';
   menuStatus!: boolean
   burgerHide!: boolean
   burgerStatusHide!: boolean

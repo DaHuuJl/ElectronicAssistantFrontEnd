@@ -8,7 +8,7 @@ import {FormControl} from "@angular/forms";
   styleUrls: ['./schedule-page.component.css']
 })
 export class SchedulePageComponent implements OnInit {
-  menuNumber = 2;
+  public menuPath = 'schedule';
   menuStatus!: boolean
   burgerHide!: boolean
   burgerStatusHide!: boolean

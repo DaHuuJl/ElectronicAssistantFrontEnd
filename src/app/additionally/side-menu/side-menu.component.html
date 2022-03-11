@@ -1,0 +1,31 @@
+<div class="menu">
+
+  <div class="burger">
+    <mat-toolbar style="background: white; padding: 25px">
+      <button (click)="clickBurger()" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Меню</span>
+    </mat-toolbar>
+
+  </div>
+
+  <div *ngFor="let menuItem of menu">
+    <div [ngClass]="eqv(menuItem.path) ? 'menu-item-selected' : 'menu-item'">
+      <a class="menu-block" href="{{menuItem.path}}">
+        <img src="{{menuItem.img}}" alt="{{menuItem.alt}}">
+        <span class="menu-item-name">{{menuItem.name}}</span>
+      </a>
+    </div>
+  </div>
+
+<!--
+  <div class="menu-item" style="position: fixed; bottom: 0; margin-bottom: 10px; width: 330px">
+    <a class="menu-block" (click)="exit()" href="/login">
+      <img src="../../../assets/exit.svg" alt="exit">
+      <span class="menu-item-name">Выйти</span>
+    </a>
+  </div>
+-->
+
+</div>

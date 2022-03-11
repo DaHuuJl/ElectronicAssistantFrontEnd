@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthorizedUserService} from "../shared/service/AuthorizedUserService";
-import {Menu} from "../shared/model/Menu";
+import {Menu} from "../shared/menu/Menu";
 
 @Component({
   selector: 'app-test-menu',

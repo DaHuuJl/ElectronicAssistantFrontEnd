@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDrawerMode} from "@angular/material/sidenav";
 
 @Component({
@@ -7,11 +7,11 @@ import {MatDrawerMode} from "@angular/material/sidenav";
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  menuNumber = 1;
-  menuStatus!: boolean
-  burgerHide!: boolean
-  burgerStatusHide!: boolean
-  mode!: MatDrawerMode
+  menuPath: string = "/";
+  menuStatus!: boolean;
+  burgerHide!: boolean;
+  burgerStatusHide!: boolean;
+  mode!: MatDrawerMode;
 
   constructor() {
   }
