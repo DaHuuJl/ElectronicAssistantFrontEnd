@@ -15,8 +15,7 @@ body {
 }
 
 .content {
-  height: 100%;
-  padding: 30px 15px 30px 30px;
+  padding: 30px;
 }
 
 mat-sidenav-container {
@@ -93,7 +92,7 @@ app-header {
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 10px;
+
   background: darkgray;
 }
 

@@ -14,6 +14,7 @@
             <p>Выберите вид справки:</p>
             <section>
               <mat-radio-group
+                id="group1"
                 class="radio-group"
                 required>
                 <mat-radio-button class="radio-button" color="primary" name="type1" value="1" checked>Справка об обучении</mat-radio-button>
@@ -29,6 +30,7 @@
             <p>Выберите вариант получения справки:</p>
             <section>
               <mat-radio-group
+                id="group2"
                 class="radio-group"
                 required>
                 <mat-radio-button class="radio-button" color="primary" name="type1" value="1" checked>Очное получение (в деканате)</mat-radio-button>
@@ -45,7 +47,7 @@
             <p>Выберите количество экзепляров:</p>
             <mat-form-field appearance="fill">
               <mat-label>Количество</mat-label>
-              <mat-select formControlName="select1" required>
+              <mat-select [(value)]="quantity" formControlName="select1" required>
                 <mat-option value="1">1</mat-option>
                 <mat-option value="2">2</mat-option>
                 <mat-option value="3">3</mat-option>
@@ -61,13 +63,33 @@
           <form [formGroup]="secondFormGroup">
             <p>Укажите место предъявления справки (при необходимости измените):</p>
             <mat-form-field appearance="fill" class="field-width">
-              <mat-label>Место предъявления</mat-label>
+              <mat-label>Место предъявления для справки №1</mat-label>
               <input matInput [matAutocomplete]="auto" formControlName="select2" required>
               <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                 <!-- Реализовать куки и потом подгружать лист ранее введенных запросов-->
               </mat-autocomplete>
             </mat-form-field>
             <br>
+            <div *ngIf="quantity == 2 || quantity == 3">
+              <mat-form-field appearance="fill" class="field-width">
+                <mat-label>Место предъявления для справки №2</mat-label>
+                <input matInput [matAutocomplete]="auto" formControlName="select3" required>
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                  <!-- Реализовать куки и потом подгружать лист ранее введенных запросов-->
+                </mat-autocomplete>
+              </mat-form-field>
+              <br>
+            </div>
+            <div *ngIf="quantity == 3">
+              <mat-form-field appearance="fill" class="field-width">
+                <mat-label>Место предъявления для справки №3</mat-label>
+                <input matInput [matAutocomplete]="auto" formControlName="select4" required>
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                  <!-- Реализовать куки и потом подгружать лист ранее введенных запросов-->
+                </mat-autocomplete>
+              </mat-form-field>
+              <br>
+            </div>
             <button mat-button color="primary" matStepperPrevious>Назад</button>
             <button mat-button color="primary" matStepperNext>Далее</button>
           </form>

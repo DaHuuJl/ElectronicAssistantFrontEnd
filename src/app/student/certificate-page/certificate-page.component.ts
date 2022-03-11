@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {MatDrawerMode} from "@angular/material/sidenav";
+import {ICertificate} from "../../shared/model/Model";
+import {CertificateService} from "../../shared/service/CertificateService";
+import {FormatReference, TypeReference} from "../../shared/model/Enums";
 
 @Component({
   selector: 'app-get-certificate-page',
@@ -15,18 +18,22 @@ export class CertificatePageComponent implements OnInit {
   burgerHide!: boolean
   burgerStatusHide!: boolean
   mode!: MatDrawerMode
-
+  quantity!: number
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   checked = false;
 
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder,
+              private router: Router,
+              private certificateService: CertificateService ) {
     this.firstFormGroup = this.fb.group({
       select1: ['', [Validators.required]]
     })
     this.secondFormGroup = this.fb.group({
-      select2: ['по месту требования', [Validators.required]]
+      select2: ['по месту требования', [Validators.required]],
+      select3: ['по месту требования', [Validators.required]],
+      select4: ['по месту требования', [Validators.required]]
     })
   }
 
@@ -57,8 +64,19 @@ export class CertificatePageComponent implements OnInit {
   }
 
   confirm() {
+    let certificate = new class implements ICertificate {
+      formatReference: FormatReference = FormatReference.PAPER;
+      typeReference: TypeReference = TypeReference.PERIOD;
+      userId: number = 1;
+    }
+    this.certificateService.createCertificate(certificate);
+
+
+    console.log(this.firstFormGroup.controls['select1'].value)
+    console.log(this.secondFormGroup.controls['select2'].value)
+    /*
     this.router.navigateByUrl('/documents', { skipLocationChange: false }).then(() => {
       this.router.navigate(['/documents']);
-    })
+    })*/
   }
 }

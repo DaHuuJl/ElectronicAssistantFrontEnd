@@ -1,0 +1,91 @@
+<mat-sidenav-container>
+  <mat-sidenav #drawer style="position: fixed" [mode]="mode">
+    <app-side-menu-student [selectedMenuItem]="menuNumber" (onClickBurger)="menuStatusReplace()"></app-side-menu-student>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-header [burgerHide]="burgerHide" [burgerStatusHide]="burgerStatusHide"  (onClickBurger)="menuStatusReplace()" ></app-header>
+
+    <main class="content">
+      <div class="survey-constructor-body">
+        <div class="survey-block-margin">
+          <app-survey-constructor-header [(surveyTitle)]="surveyTitle" [(surveyDescription)] = "surveyDescription"></app-survey-constructor-header>
+        </div>
+
+        <div cdkDropList (cdkDropListDropped)="drop($event)">
+          <div class="cdk-drop-borders">
+            <div class="survey-constructor-questions"
+                 *ngFor="let question of questions"
+                 cdkDragBoundary=".cdk-drop-borders" cdkDrag >
+              <div class="survey-block-margin">
+                <div>
+                  <mat-icon class="drag-handle" cdkDragHandle>drag_indicator</mat-icon>
+                </div>
+                <app-survey-constructor-question [(id)]="question.id"
+                                                 [(title)]="question.title"
+                                                 [(description)]="question.description"
+                                                 [(questionType)]="question.questionType"
+                                                 [(other)]="question.other"
+                                                 [(mandatory)]="question.mandatory"
+                                                 [(image)]="question.image"
+                                                 [(responseOptions)]="question.responseOptions"
+                ></app-survey-constructor-question>
+              </div>
+            </div>
+          </div>
+          </div>
+        <mat-divider [vertical]="true"></mat-divider>
+
+        <div style="padding-bottom: 10px">
+          <button mat-button color="primary" (click)="addDefaultQuestion()  ">Сохранить</button>
+          <button mat-button color="primary" (click)="print()">Удалить</button>
+        </div>
+      </div>
+
+<!--      <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">-->
+<!--        <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}</div>-->
+<!--      </div>-->
+
+
+
+      <button style="display: none" mat-button color="accent" id="toggle" (click)="drawer.toggle()">toggle menu</button>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+<!--
+
+<div cdkDropList (cdkDropListDropped)="drop($event)">
+  <div class="cdk-drop-borders">
+    <div class="survey-constructor-questions"
+         *ngFor="let question of questions"
+         cdkDragBoundary=".cdk-drop-borders" cdkDrag >
+      <div class="survey-block-margin">
+        <div>
+          <mat-icon class="drag-handle" cdkDragHandle>drag_indicator</mat-icon>
+        </div>
+        <app-survey-constructor-question [(title)]="question.title"
+                                         [(description)]="question.description"
+                                         [(questionType)]="question.questionType"
+                                         [(other)]="question.other"
+                                         [(mandatory)]="question.mandatory"
+                                         [(image)]="question.image"
+                                         [(responseOptions)]="question.responseOptions"
+        ></app-survey-constructor-question>
+      </div>
+    </div>
+  </div>
+</div>
+<mat-divider [vertical]="true"></mat-divider>
+
+<div style="padding-bottom: 10px">
+  <button mat-button color="primary" (click)="addDefaultQuestion()  ">Сохранить</button>
+  <button mat-button color="primary">Удалить</button>
+</div>
+
+&lt;!&ndash;      <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">&ndash;&gt;
+&lt;!&ndash;        <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}</div>&ndash;&gt;
+&lt;!&ndash;      </div>&ndash;&gt;
+-->

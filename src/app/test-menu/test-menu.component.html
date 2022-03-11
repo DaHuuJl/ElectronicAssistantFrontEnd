@@ -1,0 +1,28 @@
+<mat-toolbar style="z-index: 2;" color="primary">
+</mat-toolbar>
+<div style="position: relative;
+    z-index: 1;
+    display: block;
+    height: 100%;
+    overflow: auto;">
+  <main class="disp">
+    <div>
+      <div class="navigation">
+        <mat-selection-list class="" [multiple]="false">
+          <mat-list-option class="mat-selection-list-content"
+                           *ngFor="let menuItem of menu"
+                           [selected]="menuItem.selected"
+                           [class.mat-selection-list-selected]="menuItem.selected"
+                           [routerLink]="menuItem.path">
+        <span class="mat-selection-list-title">
+          {{menuItem.name}}
+        </span>
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+    </div>
+    <div style="width:  calc(100% - 251px); height: 100% !important;">
+      <app-survey-constructor></app-survey-constructor>
+    </div>
+  </main>
+</div>
