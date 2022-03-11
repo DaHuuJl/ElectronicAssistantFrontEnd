@@ -8,7 +8,7 @@ import {MatDrawerMode} from "@angular/material/sidenav";
 })
 export class VacancyPageComponent implements OnInit {
 
-  menuNumber = 7;
+  public menuPath = 'vacancy';
   menuStatus!: boolean
   burgerHide!: boolean
   burgerStatusHide!: boolean

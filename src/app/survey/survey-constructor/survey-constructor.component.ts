@@ -10,7 +10,7 @@ import {QuestionType} from "../../shared/model/Enums";
   styleUrls: ['./survey-constructor.component.css']
 })
 export class SurveyConstructorComponent implements OnInit {
-  menuNumber = 7;
+  public menuPath = 'survey';
   menuStatus!: boolean
   burgerHide!: boolean
   burgerStatusHide!: boolean

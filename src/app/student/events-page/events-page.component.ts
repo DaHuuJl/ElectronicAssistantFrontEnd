@@ -8,7 +8,7 @@ import {MatDrawerMode} from "@angular/material/sidenav";
 })
 export class EventsPageComponent implements OnInit {
 
-  menuNumber = 6;
+  public menuPath = 'events';
   menuStatus!: boolean
   burgerHide!: boolean
   burgerStatusHide!: boolean

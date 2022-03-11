@@ -1,6 +1,6 @@
-import {Menu} from "../model/Menu";
+import {Menu} from "../menu/Menu";
 import {IUser} from "../model/Model";
-import {NavigationService} from "./NavigationService";
+import {NavigationService} from "../menu/NavigationService";
 import {UserRole} from "../model/Enums";
 import {Injectable} from "@angular/core";
 
@@ -14,7 +14,6 @@ export class AuthorizedUserService {
   public setValues(authorizedUserInfo: IUser) {
     //this.customMenu = customMenu
     this.customMenu = this.navigationService.getMenu(UserRole.STUDENT);
-    this.customMenu[0].selected = true
     this.authorizedUserInfo = authorizedUserInfo;
   }
 

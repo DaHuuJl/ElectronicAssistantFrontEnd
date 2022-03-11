@@ -13,7 +13,7 @@ import {FormatReference, TypeReference} from "../../shared/model/Enums";
 })
 export class CertificatePageComponent implements OnInit {
 
-  menuNumber = 4;
+  public menuPath = 'certificate';
   menuStatus!: boolean
   burgerHide!: boolean
   burgerStatusHide!: boolean

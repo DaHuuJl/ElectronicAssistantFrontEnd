@@ -1,6 +1,6 @@
 <mat-sidenav-container>
   <mat-sidenav id="index" #drawer style="position: fixed" [mode]="mode">
-    <app-side-menu-student [selectedMenuItem]="menuNumber" (onClickBurger)="menuStatusReplace()"></app-side-menu-student>
+    <app-side-menu [menuPath]="menuPath" (onClickBurger)="menuStatusReplace()"></app-side-menu>
   </mat-sidenav>
 
   <mat-sidenav-content>

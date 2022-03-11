@@ -4,7 +4,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './additionally/header/header.component';
-import {SideMenuStudentComponent} from './additionally/side-menu-student/side-menu-student.component';
 import {HomePageComponent} from './default/home-page/home-page.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {GradeBookPageComponent} from './student/grade-book-page/grade-book-page.component';
@@ -19,10 +18,8 @@ import {StatementPageComponent} from './teacher/statement-page/statement-page.co
 import {DirectionPageComponent} from './teacher/direction-page/direction-page.component';
 import {LoginPageComponent} from './default/login-page/login-page.component';
 import {NotFoundPageComponent} from './default/not-found-page/not-found-page.component';
-import {SideMenuTeacherComponent} from './additionally/side-menu-teacher/side-menu-teacher.component';
 import {ProfileTeacherComponent} from './additionally/profile-teacher/profile-teacher.component';
 import {ProfilePageComponent} from './default/profile-page/profile-page.component';
-import {SideMenuOfficeComponent} from './additionally/side-menu-office/side-menu-office.component';
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatButtonModule} from "@angular/material/button";
 import {MatRadioModule} from "@angular/material/radio";
@@ -36,7 +33,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {LayoutModule} from "@angular/cdk/layout";
 import {MatTabsModule} from "@angular/material/tabs";
-import {MatListModule, MatNavList} from "@angular/material/list";
+import {MatListModule} from "@angular/material/list";
 import {HttpClientModule} from "@angular/common/http";
 import {SurveyConstructorComponent} from './survey/survey-constructor/survey-constructor.component';
 import {DragDropModule} from "@angular/cdk/drag-drop";
@@ -48,15 +45,15 @@ import {
   SurveyConstructorQuestionComponent
 } from './survey/survey-constructor-question/survey-constructor-question.component';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
-import {MatTooltip, MatTooltipModule} from "@angular/material/tooltip";
-import { TestMenuComponent } from './test-menu/test-menu.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {TestMenuComponent} from './test-menu/test-menu.component';
+import {SideMenuComponent} from './additionally/side-menu/side-menu.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SideMenuStudentComponent,
     HomePageComponent,
     GradeBookPageComponent,
     SchedulePageComponent,
@@ -70,15 +67,14 @@ import { TestMenuComponent } from './test-menu/test-menu.component';
     DirectionPageComponent,
     LoginPageComponent,
     NotFoundPageComponent,
-    SideMenuTeacherComponent,
     ProfileTeacherComponent,
     ProfilePageComponent,
-    SideMenuOfficeComponent,
     SurveyConstructorComponent,
     SurveyConstructorHeaderComponent,
     SurveyConstructorSidePanelComponent,
     SurveyConstructorQuestionComponent,
     TestMenuComponent,
+    SideMenuComponent,
   ],
   imports: [
     BrowserModule,
