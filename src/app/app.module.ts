@@ -35,19 +35,21 @@ import {LayoutModule} from "@angular/cdk/layout";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatListModule} from "@angular/material/list";
 import {HttpClientModule} from "@angular/common/http";
-import {SurveyConstructorComponent} from './survey/survey-constructor/survey-constructor.component';
+import {SurveyConstructorComponent} from './additionally/survey/survey-constructor/survey-constructor.component';
 import {DragDropModule} from "@angular/cdk/drag-drop";
-import {SurveyConstructorHeaderComponent} from './survey/survey-constructor-header/survey-constructor-header.component';
+import {SurveyConstructorHeaderComponent} from './additionally/survey/survey-constructor-header/survey-constructor-header.component';
 import {
   SurveyConstructorSidePanelComponent
-} from './survey/survey-constructor-side-panel/survey-constructor-side-panel.component';
+} from './additionally/survey/survey-constructor-side-panel/survey-constructor-side-panel.component';
 import {
   SurveyConstructorQuestionComponent
-} from './survey/survey-constructor-question/survey-constructor-question.component';
+} from './additionally/survey/survey-constructor-question/survey-constructor-question.component';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {TestMenuComponent} from './test-menu/test-menu.component';
 import {SideMenuComponent} from './additionally/side-menu/side-menu.component';
+import {AngularEditorModule} from "@kolkov/angular-editor";
+import {MatMenuModule} from "@angular/material/menu";
 
 
 @NgModule({
@@ -99,6 +101,8 @@ import {SideMenuComponent} from './additionally/side-menu/side-menu.component';
     DragDropModule,
     MatSlideToggleModule,
     MatTooltipModule,
+    AngularEditorModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
