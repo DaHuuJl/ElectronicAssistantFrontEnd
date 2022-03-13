@@ -17,5 +17,5 @@ export enum QuestionType {
 }
 
 export enum UserRole {
-  STUDENT, TEACHER, SECOND
+  STUDENT, TEACHER, OFFICE, SECOND
 }

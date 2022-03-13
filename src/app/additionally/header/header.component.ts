@@ -10,7 +10,6 @@ export class HeaderComponent implements OnInit {
   @Input() burgerStatusHide!: boolean
   @Input() burgerHide!: boolean
   @Output() onClickBurger = new EventEmitter
-  menuItemName: any = "DEFAULT";
 
   constructor() { }
 

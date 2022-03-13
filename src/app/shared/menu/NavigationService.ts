@@ -22,6 +22,13 @@ export class NavigationService {
     new Menu("Списки групп", "/groups", "../../../assets/documents.svg", "documents"),
   ]
 
+  private officeMenu: Menu[] = [
+    new Menu("Главная", "/", "../../../assets/home.svg", "home"),
+    new Menu("", "", "", ""),
+    new Menu("", "", "", ""),
+    new Menu("", "", "", "")
+  ]
+
   private secondMenu: Menu[] = [
     new Menu("Главная", "/", "../../../assets/home.svg", "home"),
     new Menu("", "", "", ""),
@@ -35,6 +42,8 @@ export class NavigationService {
         return this.studentMenu;
       case UserRole.TEACHER:
         return this.teacherMenu;
+      case UserRole.OFFICE:
+        return this.officeMenu;
       case UserRole.SECOND:
         return this.secondMenu;
     }

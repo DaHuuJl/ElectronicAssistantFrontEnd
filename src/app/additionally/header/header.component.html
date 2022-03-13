@@ -12,6 +12,21 @@
       </button>
     </div>
 
-    <span>{{menuItemName}}</span>
+    <button class="txt" style="margin-left: auto" mat-button [matMenuTriggerFor]="menu">Смирнов Д. Я.</button>
+    <mat-menu yPosition="below" xPosition="before" #menu="matMenu">
+      <button style="margin-right: 15px" mat-menu-item>
+        <mat-icon>account_circle</mat-icon>
+        <span>Профиль</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Настройки</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Выход</span>
+      </button>
+    </mat-menu>
+
   </mat-toolbar>
 </header>
