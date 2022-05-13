@@ -34,22 +34,24 @@ import {MatIconModule} from "@angular/material/icon";
 import {LayoutModule} from "@angular/cdk/layout";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatListModule} from "@angular/material/list";
-import {HttpClientModule} from "@angular/common/http";
-import {SurveyConstructorComponent} from './additionally/survey/survey-constructor/survey-constructor.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {DragDropModule} from "@angular/cdk/drag-drop";
-import {SurveyConstructorHeaderComponent} from './additionally/survey/survey-constructor-header/survey-constructor-header.component';
-import {
-  SurveyConstructorSidePanelComponent
-} from './additionally/survey/survey-constructor-side-panel/survey-constructor-side-panel.component';
-import {
-  SurveyConstructorQuestionComponent
-} from './additionally/survey/survey-constructor-question/survey-constructor-question.component';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {TestMenuComponent} from './test-menu/test-menu.component';
 import {SideMenuComponent} from './additionally/side-menu/side-menu.component';
-import {AngularEditorModule} from "@kolkov/angular-editor";
 import {MatMenuModule} from "@angular/material/menu";
+import {SurveyConstructorComponent} from "./survey/survey-constructor/survey-constructor.component";
+import {SurveyConstructorHeaderComponent} from "./survey/survey-constructor-header/survey-constructor-header.component";
+import {
+  SurveyConstructorSidePanelComponent
+} from "./survey/survey-constructor-side-panel/survey-constructor-side-panel.component";
+import {
+  SurveyConstructorQuestionComponent
+} from "./survey/survey-constructor-question/survey-constructor-question.component";
+import { OAuthModule } from 'angular-oauth2-oidc';
+import {AddHeaderInterceptor} from "./Interceptors/Interceptor";
+
 
 
 @NgModule({
@@ -101,10 +103,19 @@ import {MatMenuModule} from "@angular/material/menu";
     DragDropModule,
     MatSlideToggleModule,
     MatTooltipModule,
-    AngularEditorModule,
-    MatMenuModule
+    OAuthModule.forRoot({
+      resourceServer: {
+        allowedUrls: ['http://localhost:8020/api','http://localhost:4200/api'],
+        sendAccessToken: true
+      }
+    }),
+    MatMenuModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AddHeaderInterceptor,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
