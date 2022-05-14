@@ -34,27 +34,33 @@ import {MatIconModule} from "@angular/material/icon";
 import {LayoutModule} from "@angular/cdk/layout";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatListModule} from "@angular/material/list";
-import {HttpClientModule} from "@angular/common/http";
-import {SurveyConstructorComponent} from './additionally/survey/survey-constructor/survey-constructor.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {DragDropModule} from "@angular/cdk/drag-drop";
-import {SurveyConstructorHeaderComponent} from './additionally/survey/survey-constructor-header/survey-constructor-header.component';
-import {
-  SurveyConstructorSidePanelComponent
-} from './additionally/survey/survey-constructor-side-panel/survey-constructor-side-panel.component';
-import {
-  SurveyConstructorQuestionComponent
-} from './additionally/survey/survey-constructor-question/survey-constructor-question.component';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {TestMenuComponent} from './test-menu/test-menu.component';
 import {SideMenuComponent} from './additionally/side-menu/side-menu.component';
-import {AngularEditorModule} from "@kolkov/angular-editor";
 import {MatMenuModule} from "@angular/material/menu";
+
+import { OAuthModule } from 'angular-oauth2-oidc';
+import {AddHeaderInterceptor} from "./Interceptors/Interceptor";
+
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {MatCardModule} from "@angular/material/card";
+import {SurveyConstructorComponent} from "./additionally/survey/survey-constructor/survey-constructor.component";
+import {
+  SurveyConstructorHeaderComponent
+} from "./additionally/survey/survey-constructor-header/survey-constructor-header.component";
+import {
+  SurveyConstructorSidePanelComponent
+} from "./additionally/survey/survey-constructor-side-panel/survey-constructor-side-panel.component";
+import {
+  SurveyConstructorQuestionComponent
+} from "./additionally/survey/survey-constructor-question/survey-constructor-question.component";
+import {AngularEditorModule} from "@kolkov/angular-editor";
 
 
 @NgModule({
@@ -83,38 +89,48 @@ import {MatCardModule} from "@angular/material/card";
     TestMenuComponent,
     SideMenuComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatStepperModule,
-        MatSidenavModule,
-        MatButtonModule,
-        MatRadioModule,
-        MatCheckboxModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatSelectModule,
-        MatInputModule,
-        MatAutocompleteModule,
-        MatToolbarModule,
-        MatIconModule,
-        LayoutModule,
-        MatTabsModule,
-        MatListModule,
-        HttpClientModule,
-        DragDropModule,
-        MatSlideToggleModule,
-        MatTooltipModule,
-        AngularEditorModule,
-        MatMenuModule,
-        MatExpansionModule,
-        MatPaginatorModule,
-        MatSortModule,
-        MatTableModule,
-        MatCardModule
-    ],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AngularEditorModule,
+    MatExpansionModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+    MatCardModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatStepperModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatToolbarModule,
+    MatIconModule,
+    LayoutModule,
+    MatTabsModule,
+    MatListModule,
+    HttpClientModule,
+    DragDropModule,
+    MatSlideToggleModule,
+    MatTooltipModule,
+    OAuthModule.forRoot({
+      resourceServer: {
+        allowedUrls: ['http://localhost:8020/api','http://localhost:4200/api'],
+        sendAccessToken: true
+      }
+    }),
+    MatMenuModule,
+  ],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AddHeaderInterceptor,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -22,6 +22,7 @@
     "@angular/router": "~13.0.0",
     "@kolkov/angular-editor": "^2.0.0",
     "angular-froala-wysiwyg": "^4.0.9",
+    "angular-oauth2-oidc": "^13.0.1",
     "monaco-editor": "^0.33.0",
     "ng2-cookies": "^1.0.12",
     "ngx-monaco-editor": "^12.0.0",
@@ -30,7 +31,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^13.2.6",
+    "@angular-devkit/build-angular": "^13.3.5",
     "@angular/cli": "~13.0.2",
     "@angular/compiler-cli": "~13.0.0",
     "@types/jasmine": "~3.10.0",
