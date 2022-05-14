@@ -8,7 +8,7 @@ import {HomePageComponent} from './default/home-page/home-page.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {GradeBookPageComponent} from './student/grade-book-page/grade-book-page.component';
 import {SchedulePageComponent} from './default/schedule-page/schedule-page.component';
-import {CertificatePageComponent} from './student/certificate-page/certificate-page.component';
+import {ReferencePageComponent} from './student/reference-page/reference-page.component';
 import {DocumentsPageComponent} from './student/documents-page/documents-page.component';
 import {EventsPageComponent} from './student/events-page/events-page.component';
 import {VacancyPageComponent} from './student/vacancy-page/vacancy-page.component';
@@ -50,6 +50,11 @@ import {TestMenuComponent} from './test-menu/test-menu.component';
 import {SideMenuComponent} from './additionally/side-menu/side-menu.component';
 import {AngularEditorModule} from "@kolkov/angular-editor";
 import {MatMenuModule} from "@angular/material/menu";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatTableModule} from "@angular/material/table";
+import {MatSortModule} from "@angular/material/sort";
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -59,7 +64,7 @@ import {MatMenuModule} from "@angular/material/menu";
     HomePageComponent,
     GradeBookPageComponent,
     SchedulePageComponent,
-    CertificatePageComponent,
+    ReferencePageComponent,
     DocumentsPageComponent,
     EventsPageComponent,
     VacancyPageComponent,
@@ -78,32 +83,37 @@ import {MatMenuModule} from "@angular/material/menu";
     TestMenuComponent,
     SideMenuComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatStepperModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatRadioModule,
-    MatCheckboxModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatSelectModule,
-    MatInputModule,
-    MatAutocompleteModule,
-    MatToolbarModule,
-    MatIconModule,
-    LayoutModule,
-    MatTabsModule,
-    MatListModule,
-    HttpClientModule,
-    DragDropModule,
-    MatSlideToggleModule,
-    MatTooltipModule,
-    AngularEditorModule,
-    MatMenuModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatStepperModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatRadioModule,
+        MatCheckboxModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatSelectModule,
+        MatInputModule,
+        MatAutocompleteModule,
+        MatToolbarModule,
+        MatIconModule,
+        LayoutModule,
+        MatTabsModule,
+        MatListModule,
+        HttpClientModule,
+        DragDropModule,
+        MatSlideToggleModule,
+        MatTooltipModule,
+        AngularEditorModule,
+        MatMenuModule,
+        MatExpansionModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatTableModule,
+        MatCardModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

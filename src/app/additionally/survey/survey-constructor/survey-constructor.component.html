@@ -45,9 +45,11 @@
 <!--      <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">-->
 <!--        <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}</div>-->
 <!--      </div>-->
-
-
-
+      <angular-editor  [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent"></angular-editor>
+      <!--<input style="height: 2000px" [value]=""/>-->
+      <p style="height: 200px"></p>
+      <div [innerHTML]="htmlContent"></div>
+      <p style="height: 200px"></p>
       <button style="display: none" mat-button color="accent" id="toggle" (click)="drawer.toggle()">toggle menu</button>
     </main>
   </mat-sidenav-content>

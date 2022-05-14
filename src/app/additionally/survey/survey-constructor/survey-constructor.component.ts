@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDrawerMode} from "@angular/material/sidenav";
 import {CdkDragDrop, moveItemInArray} from "@angular/cdk/drag-drop";
-import {IQuestionCreating, IResponseOptionsCreating} from "../../shared/model/Model";
-import {QuestionType} from "../../shared/model/Enums";
+import {IQuestionCreating} from "../../../shared/model/Model";
+import {QuestionType} from "../../../shared/model/Enums";
 
 @Component({
   selector: 'app-survey-constructor',
@@ -19,6 +19,7 @@ export class SurveyConstructorComponent implements OnInit {
   surveyTitle: string = "Новый опрос"
   surveyDescription: string = "Описание опроса"
   questions: Array<IQuestionCreating> = []
+  htmlContent: any;
 
   constructor() {
   }
@@ -37,8 +38,8 @@ export class SurveyConstructorComponent implements OnInit {
       this.burgerHide = false
     }
     this.addDefaultQuestion()
-/*    this.addDefaultQuestion()
-    this.addDefaultQuestion()*/
+    this.addDefaultQuestion()
+    this.addDefaultQuestion()
   }
 
   public menuStatusReplace() {
