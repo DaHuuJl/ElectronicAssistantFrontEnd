@@ -1,9 +1,9 @@
 import {FormatReference, QuestionType, TypeReference} from "./Enums";
 
-export interface ICertificate {
-  userId: number;
-  formatReference: FormatReference;
-  typeReference: TypeReference
+export interface IReferenceRequestInput {
+  formatReference: FormatReference,
+  typeReference: TypeReference,
+  placePresentation: String
 }
 
 export interface IUser {
@@ -33,7 +33,6 @@ export interface IResponseOptions {
   title: string,
   image: string
 }
-
 
 export interface ISurveyCreating {
   id: number,

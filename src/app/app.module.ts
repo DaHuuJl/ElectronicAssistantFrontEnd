@@ -8,7 +8,7 @@ import {HomePageComponent} from './default/home-page/home-page.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {GradeBookPageComponent} from './student/grade-book-page/grade-book-page.component';
 import {SchedulePageComponent} from './default/schedule-page/schedule-page.component';
-import {CertificatePageComponent} from './student/certificate-page/certificate-page.component';
+import {ReferencePageComponent} from './student/reference-page/reference-page.component';
 import {DocumentsPageComponent} from './student/documents-page/documents-page.component';
 import {EventsPageComponent} from './student/events-page/events-page.component';
 import {VacancyPageComponent} from './student/vacancy-page/vacancy-page.component';
@@ -41,17 +41,26 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {TestMenuComponent} from './test-menu/test-menu.component';
 import {SideMenuComponent} from './additionally/side-menu/side-menu.component';
 import {MatMenuModule} from "@angular/material/menu";
-import {SurveyConstructorComponent} from "./survey/survey-constructor/survey-constructor.component";
-import {SurveyConstructorHeaderComponent} from "./survey/survey-constructor-header/survey-constructor-header.component";
-import {
-  SurveyConstructorSidePanelComponent
-} from "./survey/survey-constructor-side-panel/survey-constructor-side-panel.component";
-import {
-  SurveyConstructorQuestionComponent
-} from "./survey/survey-constructor-question/survey-constructor-question.component";
+
 import { OAuthModule } from 'angular-oauth2-oidc';
 import {AddHeaderInterceptor} from "./Interceptors/Interceptor";
 
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatTableModule} from "@angular/material/table";
+import {MatSortModule} from "@angular/material/sort";
+import {MatCardModule} from "@angular/material/card";
+import {SurveyConstructorComponent} from "./additionally/survey/survey-constructor/survey-constructor.component";
+import {
+  SurveyConstructorHeaderComponent
+} from "./additionally/survey/survey-constructor-header/survey-constructor-header.component";
+import {
+  SurveyConstructorSidePanelComponent
+} from "./additionally/survey/survey-constructor-side-panel/survey-constructor-side-panel.component";
+import {
+  SurveyConstructorQuestionComponent
+} from "./additionally/survey/survey-constructor-question/survey-constructor-question.component";
+import {AngularEditorModule} from "@kolkov/angular-editor";
 
 
 @NgModule({
@@ -61,7 +70,7 @@ import {AddHeaderInterceptor} from "./Interceptors/Interceptor";
     HomePageComponent,
     GradeBookPageComponent,
     SchedulePageComponent,
-    CertificatePageComponent,
+    ReferencePageComponent,
     DocumentsPageComponent,
     EventsPageComponent,
     VacancyPageComponent,
@@ -82,6 +91,12 @@ import {AddHeaderInterceptor} from "./Interceptors/Interceptor";
   ],
   imports: [
     BrowserModule,
+    AngularEditorModule,
+    MatExpansionModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+    MatCardModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatStepperModule,
