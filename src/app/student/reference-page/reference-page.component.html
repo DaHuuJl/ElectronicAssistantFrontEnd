@@ -16,8 +16,9 @@
               <mat-radio-group
                 id="group1"
                 class="radio-group"
+                [(ngModel)]="typeReference"
                 required>
-                <mat-radio-button class="radio-button" color="primary" name="type1" value="1" checked>Справка об обучении</mat-radio-button>
+                <mat-radio-button class="radio-button" color="primary" name="type1" value="1">Справка об обучении</mat-radio-button>
                 <mat-radio-button class="radio-button" color="primary" name="type2" value="2">Справка о периоде обучения</mat-radio-button>
               </mat-radio-group>
             </section>
@@ -32,8 +33,9 @@
               <mat-radio-group
                 id="group2"
                 class="radio-group"
+                [(ngModel)]="formatReference"
                 required>
-                <mat-radio-button class="radio-button" color="primary" name="type1" value="1" checked>Очное получение (в деканате)</mat-radio-button>
+                <mat-radio-button class="radio-button" color="primary" name="type1" value="1">Очное получение (в деканате)</mat-radio-button>
                 <mat-radio-button class="radio-button" color="primary" name="type2" value="2">Заочное получение (электронная версия)</mat-radio-button>
               </mat-radio-group>
             </section>

@@ -9,7 +9,7 @@ export class NavigationService {
     new Menu("Главная", "/", "../../../assets/home.svg", "home"),
     new Menu("Расписание", "/schedule", "../../../assets/calendar.svg", "calendar"),
     new Menu("Зачётная книжка", "/grade-book", "../../../assets/note.svg", "note"),
-    new Menu("Получить справку", "/certificate", "../../../assets/new_file.svg", "new_file"),
+    new Menu("Получить справку", "/reference", "../../../assets/new_file.svg", "new_file"),
     new Menu("Мои документы", "/documents", "../../../assets/documents.svg", "documents"),
     new Menu("События", "/events", "../../../assets/world.svg", "world"),
     new Menu("Вакансии", "/vacancy", "../../../assets/work.svg", "work"),

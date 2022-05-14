@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {IQuestionCreating, IResponseOptionsCreating} from "../../shared/model/Model";
-import {QuestionType} from "../../shared/model/Enums";
+import {IQuestionCreating, IResponseOptionsCreating} from "../../../shared/model/Model";
+import {QuestionType} from "../../../shared/model/Enums";
 
 @Component({
   selector: 'app-survey-constructor-question',
