@@ -12,8 +12,20 @@ export class AuthorizedUserService {
   constructor(private navigationService: NavigationService) {}
 
   public setValues(authorizedUserInfo: IUser) {
-    //this.customMenu = customMenu
-    this.customMenu = this.navigationService.getMenu(UserRole.STUDENT);
+
+    let data = sessionStorage.getItem('list_roles');
+
+    let roles = undefined;
+    if (data != undefined) {
+      roles = data.split(',');
+    }
+    if (roles == undefined) {
+      this.customMenu = this.navigationService.getMenu(UserRole.SECOND);
+    } else if (roles.includes('student')) {
+      this.customMenu = this.navigationService.getMenu(UserRole.STUDENT);
+    } else if (roles.includes('admin')) {
+      this.customMenu = this.navigationService.getMenu(UserRole.TEACHER);
+    }
     this.authorizedUserInfo = authorizedUserInfo;
   }
 

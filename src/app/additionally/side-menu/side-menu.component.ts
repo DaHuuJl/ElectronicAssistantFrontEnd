@@ -13,6 +13,7 @@ export class SideMenuComponent implements OnInit {
   @Input() menuPath!: string;
   @Output() onClickBurger = new EventEmitter;
 
+  roles: string[] = [];
 
   constructor(private authorizedUserService: AuthorizedUserService) {
     authorizedUserService.setValues({email: "asdf@mail.ru"})
@@ -20,6 +21,11 @@ export class SideMenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let data = sessionStorage.getItem('list_roles');
+    if (data != undefined) {
+      this.roles = data!.split(",");
+    }
+
   }
 
   exit() {

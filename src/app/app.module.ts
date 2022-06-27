@@ -1,4 +1,7 @@
-import {NgModule} from '@angular/core';
+// @ts-ignore
+// @ts-ignore
+
+import {Injector, NgModule, Optional, SkipSelf} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -34,7 +37,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {LayoutModule} from "@angular/cdk/layout";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatListModule} from "@angular/material/list";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {DragDropModule} from "@angular/cdk/drag-drop";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatTooltipModule} from "@angular/material/tooltip";
@@ -51,6 +54,7 @@ import {
 } from "./survey/survey-constructor-question/survey-constructor-question.component";
 import { OAuthModule } from 'angular-oauth2-oidc';
 import {AddHeaderInterceptor} from "./Interceptors/Interceptor";
+import {UserService} from "./shared/service/UserService";
 
 
 
@@ -111,11 +115,45 @@ import {AddHeaderInterceptor} from "./Interceptors/Interceptor";
     }),
     MatMenuModule,
   ],
-  providers: [{
+  providers: [
+    // AuthService,
+    {
     provide: HTTP_INTERCEPTORS,
     useClass: AddHeaderInterceptor,
     multi: true,
   }],
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   // этим будем соответственно рефрешить
+    //   useClass: RefreshTokenInterceptor,
+    //   multi: true
+    // }
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+// export class AppModule {
+//   @Optional() @SkipSelf()// - если вдруг мы попытаемся импортировать CoreModule в AppModule и например UserModule - получим ошибку
+//   constructor(@Optional() @SkipSelf() parentModule: AppModule,
+//               userService: UserService,
+//               inj: Injector,
+//               auth: AuthService,
+//               http: HttpClient) {
+//
+//     //Получаем интерцепторы которые реализуют интерфейс AuthInterceptor
+//     let interceptors = inj.get<AuthInterceptor[]>(HTTP_INTERCEPTORS)
+//       .filter(i => { return i.init; });
+//     //передаем http сервис и сервис авторизации.
+//     interceptors.forEach(i => i.init(http, auth));
+//
+//     userService.init();
+//
+//     if (parentModule) {
+//       //если мы здесь, значит случайно включили CoreModule в двух и более местах
+//       throw new Error(
+//         'CoreModule is already loaded. Import it in the AppModule only');
+//     }
+//   }
+//
+// }
+

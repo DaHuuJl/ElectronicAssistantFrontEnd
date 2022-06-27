@@ -10,7 +10,7 @@
 
   </div>
 
-  <div *ngFor="let menuItem of menu">
+  <div *ngFor="let menuItem of menu;">
     <div [ngClass]="eqv(menuItem.path) ? 'menu-item-selected' : 'menu-item'">
       <a class="menu-block" href="{{menuItem.path}}">
         <img class="menu-item-img" src="{{menuItem.img}}" alt="{{menuItem.alt}}">

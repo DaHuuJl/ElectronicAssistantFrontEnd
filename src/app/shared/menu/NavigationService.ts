@@ -31,9 +31,9 @@ export class NavigationService {
 
   private secondMenu: Menu[] = [
     new Menu("Главная", "/", "../../../assets/home.svg", "home"),
-    new Menu("", "", "", ""),
-    new Menu("", "", "", ""),
-    new Menu("", "", "", "")
+    // new Menu("", "", "", ""),
+    // new Menu("", "", "", ""),
+    // new Menu("", "", "", "")
   ]
 
   public getMenu(role: UserRole): Menu[] {

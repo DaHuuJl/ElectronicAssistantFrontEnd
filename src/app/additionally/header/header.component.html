@@ -12,7 +12,8 @@
       </button>
     </div>
 
-    <button class="txt" style="margin-left: auto" mat-button [matMenuTriggerFor]="menu">Смирнов Д. Я.</button>
+    <button class="txt" style="margin-left: auto" mat-button *ngIf="name != undefined" [matMenuTriggerFor]="menu">{{name}}</button>
+    <button class="txt" style="margin-left: auto" mat-button *ngIf="name == undefined" (click)="login()">Войти</button>
     <mat-menu yPosition="below" xPosition="before" #menu="matMenu">
       <button style="margin-right: 15px" mat-menu-item>
         <mat-icon>account_circle</mat-icon>
@@ -21,10 +22,6 @@
       <button mat-menu-item (click)="habr()">
         <mat-icon>settings</mat-icon>
         <span>Настройки</span>
-      </button>
-      <button mat-menu-item (click)="login()">
-        <mat-icon>exit_to_app</mat-icon>
-        <span>Вход</span>
       </button>
       <button mat-menu-item (click)="logoff()">
         <mat-icon>exit_to_app</mat-icon>
